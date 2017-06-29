@@ -2,8 +2,10 @@ package com.atasoyh.appbusinesstestproject.api;
 
 import com.atasoyh.appbusinesstestproject.model.ComicResponse;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by atasoyh on 29/06/2017.
@@ -11,13 +13,15 @@ import retrofit2.http.Path;
 
 public interface MarvelApi {
 
-//    final String API_LEVEL="v1";
-//    final String API_URL=API_URL
+    final static String API_URL="https://gateway.marvel.com:443";
 
     @GET("/v1/public/comics")
-    ComicResponse getComics();
+    Observable<ComicResponse> getComics(@Query("offset") int offset,@Query("limit") int limit);
+
+    @GET("/v1/public/comics")
+    Observable<ComicResponse> getComics();
 
     @GET("/v1/public/comics/{comicId}")
-    ComicResponse getComicById(@Path("comicId") String comicId);
+    Observable<ComicResponse> getComicById(@Path("comicId") String comicId);
 
 }

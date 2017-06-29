@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AppBusinessTestProject</string>
+    <string name="marvel_api_public_key">18d148ca86bd623d2b2b9acdc736e034</string>
+    <string name="marvel_api_private_key">e0dd7b04026a005be73751265dec6520bece5c02</string>
 </resources>

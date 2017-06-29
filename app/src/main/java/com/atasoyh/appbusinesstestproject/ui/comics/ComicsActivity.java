@@ -1,32 +1,40 @@
 package com.atasoyh.appbusinesstestproject.ui.comics;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.atasoyh.appbusinesstestproject.DefaultApplication;
 import com.atasoyh.appbusinesstestproject.R;
 import com.atasoyh.appbusinesstestproject.model.Comic;
-import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsView;
-import com.atasoyh.appbusinesstestproject.ui.BaseActivity;
+import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsContract;
+import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsPresenter;
+import com.atasoyh.appbusinesstestproject.ui.base.BaseActivity;
 
 import java.util.List;
 
-public class ComicsActivity extends BaseActivity implements ComicsView {
+import javax.inject.Inject;
+
+public class ComicsActivity extends BaseActivity implements ComicsContract.View {
+
+    @Inject
+    ComicsPresenter comicsPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);
+        comicsPresenter.loadComics();
     }
 
     @Override
-    public void showProgess() {
-
+    protected void injectDependencies(DefaultApplication application) {
+        application.getComicsActivitySubComponent((this)).inject(this);
     }
 
     @Override
-    public void dismissProgress() {
-
+    protected void releaseSubComponents(DefaultApplication application) {
+        application.removeComicsActivitySubComponent();
     }
+
 
     @Override
     public void showComicList(List<Comic> comicList) {

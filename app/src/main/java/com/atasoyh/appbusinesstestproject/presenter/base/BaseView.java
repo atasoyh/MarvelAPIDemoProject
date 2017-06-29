@@ -1,4 +1,4 @@
-package com.atasoyh.appbusinesstestproject.presenter;
+package com.atasoyh.appbusinesstestproject.presenter.base;
 
 import com.atasoyh.appbusinesstestproject.model.Comic;
 
@@ -11,5 +11,5 @@ import java.util.List;
 public interface BaseView {
     void showProgess();
     void dismissProgress();
-
+    void showError(String message);
 }
