@@ -1,6 +1,6 @@
 package com.atasoyh.appbusinesstestproject.presenter.comics;
 
-import com.atasoyh.appbusinesstestproject.interactor.GetComicsInteractor;
+import com.atasoyh.appbusinesstestproject.interactor.GetComicListInteractor;
 import com.atasoyh.appbusinesstestproject.model.Comic;
 import com.atasoyh.appbusinesstestproject.presenter.base.BasePresenter;
 
@@ -15,19 +15,19 @@ import io.reactivex.disposables.Disposable;
  * Created by atasoyh on 29/06/2017.
  */
 
-public class ComicsPresenter extends BasePresenter<ComicsContract.View> {
+public class ComicsPresenter extends BasePresenter<ComicListContract.View> {
 
-    GetComicsInteractor getComicsInteractor;
+    GetComicListInteractor getComicListInteractor;
 
     @Inject
-    public ComicsPresenter(ComicsContract.View view, GetComicsInteractor interactor) {
+    public ComicsPresenter(ComicListContract.View view, GetComicListInteractor interactor) {
         super(view);
-        getComicsInteractor =interactor;
+        getComicListInteractor =interactor;
     }
 
     public void loadComics() {
          view.showProgess();
-         getComicsInteractor.execute(getObserver());
+         getComicListInteractor.execute(getObserver());
 
     }
 

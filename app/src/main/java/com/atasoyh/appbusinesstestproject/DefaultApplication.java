@@ -6,9 +6,13 @@ import android.content.Context;
 import com.atasoyh.appbusinesstestproject.di.component.AppComponent;
 import com.atasoyh.appbusinesstestproject.di.component.DaggerAppComponent;
 import com.atasoyh.appbusinesstestproject.di.modules.AppModule;
-import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsContract;
-import com.atasoyh.appbusinesstestproject.ui.comics.ComicsActivityModule;
-import com.atasoyh.appbusinesstestproject.ui.comics.ComicsActivitySubComponent;
+import com.atasoyh.appbusinesstestproject.model.Comic;
+import com.atasoyh.appbusinesstestproject.presenter.comicdetail.ComicDetailContract;
+import com.atasoyh.appbusinesstestproject.presenter.comics.ComicListContract;
+import com.atasoyh.appbusinesstestproject.ui.comicdetail.ComicDetailModule;
+import com.atasoyh.appbusinesstestproject.ui.comicdetail.ComicDetailSubComponent;
+import com.atasoyh.appbusinesstestproject.ui.comics.ComicListModule;
+import com.atasoyh.appbusinesstestproject.ui.comics.ComicListSubComponent;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
@@ -19,7 +23,8 @@ public class DefaultApplication extends Application {
 
 
     private AppComponent appComponent;
-    private ComicsActivitySubComponent comicsActivitySubComponent;
+    private ComicListSubComponent comicListSubComponent;
+    private ComicDetailSubComponent comicDetailSubComponent;
 
     @Override
     public void onCreate() {
@@ -35,16 +40,28 @@ public class DefaultApplication extends Application {
         appComponent.inject(this);
     }
 
-    public ComicsActivitySubComponent getComicsActivitySubComponent(ComicsContract.View view) {
-        if (comicsActivitySubComponent == null) {
-            comicsActivitySubComponent = appComponent.plus(new ComicsActivityModule(view));
+    public ComicListSubComponent getComicsActivitySubComponent(ComicListContract.View view) {
+        if (comicListSubComponent == null) {
+            comicListSubComponent = appComponent.plus(new ComicListModule(view));
         }
-        return comicsActivitySubComponent;
+        return comicListSubComponent;
     }
 
     public void removeComicsActivitySubComponent() {
-        comicsActivitySubComponent = null;
+        comicListSubComponent = null;
     }
+
+    public ComicDetailSubComponent getComicDetailSubComponent(ComicDetailContract.View view,String comicId) {
+        if (comicDetailSubComponent == null) {
+            comicDetailSubComponent = appComponent.plus(new ComicDetailModule(view,comicId));
+        }
+        return comicDetailSubComponent;
+    }
+
+    public void removeComicDetailSubComponent() {
+        comicDetailSubComponent = null;
+    }
+
 
 
     public static DefaultApplication get(Context context) {

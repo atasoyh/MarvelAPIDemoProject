@@ -1,4 +1,4 @@
-package com.atasoyh.appbusinesstestproject.ui.comics;
+package com.atasoyh.appbusinesstestproject.ui.comicdetail;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,6 +11,6 @@ import javax.inject.Scope;
 
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ComicsScope {
+public @interface ComicDetailScope {
     
 }

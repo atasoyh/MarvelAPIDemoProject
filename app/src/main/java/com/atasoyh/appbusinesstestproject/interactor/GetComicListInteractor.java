@@ -21,13 +21,13 @@ import io.reactivex.schedulers.Schedulers;
  * Created by atasoyh on 29/06/2017.
  */
 
-public class GetComicsInteractor {
+public class GetComicListInteractor {
 
 
     MarvelApi marvelApi;
 
     @Inject
-    public GetComicsInteractor(MarvelApi marvelApi) {
+    public GetComicListInteractor(MarvelApi marvelApi) {
         this.marvelApi = marvelApi;
     }
 

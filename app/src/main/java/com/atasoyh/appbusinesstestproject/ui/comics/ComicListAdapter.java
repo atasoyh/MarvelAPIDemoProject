@@ -19,12 +19,12 @@ import butterknife.ButterKnife;
  * Created by atasoyh on 30/06/2017.
  */
 
-public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder> {
+public class ComicListAdapter extends RecyclerView.Adapter<ComicListAdapter.ViewHolder> {
 
     List<Comic> comicList;
     OnItemClickListener onItemClickListener;
 
-    public ComicsAdapter(List<Comic> comicList) {
+    public ComicListAdapter(List<Comic> comicList) {
         this.comicList = comicList;
     }
 
