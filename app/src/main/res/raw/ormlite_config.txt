@@ -1,0 +1,32 @@
+# --table-start--
+dataClass=com.atasoyh.appbusinesstestproject.interactor.db.model.ComicModel
+tableName=comics
+# --table-fields-start--
+# --field-start--
+fieldName=id
+columnName=_id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=title
+columnName=title
+# --field-end--
+# --field-start--
+fieldName=description
+columnName=description
+# --field-end--
+# --field-start--
+fieldName=thumbnail
+columnName=thumbnail
+# --field-end--
+# --field-start--
+fieldName=author
+columnName=author
+# --field-end--
+# --field-start--
+fieldName=price
+columnName=price
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

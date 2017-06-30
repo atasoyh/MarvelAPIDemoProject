@@ -62,4 +62,8 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 
+    //ORM
+    implementation "com.j256.ormlite:ormlite-core:5.0"
+    implementation "com.j256.ormlite:ormlite-android:5.0"
+
 }

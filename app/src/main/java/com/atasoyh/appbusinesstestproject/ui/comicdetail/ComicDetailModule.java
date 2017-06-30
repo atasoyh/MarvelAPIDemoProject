@@ -1,13 +1,10 @@
 package com.atasoyh.appbusinesstestproject.ui.comicdetail;
 
-import com.atasoyh.appbusinesstestproject.api.MarvelApi;
+import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.interactor.GetComicDetailInteractor;
 import com.atasoyh.appbusinesstestproject.interactor.GetComicListInteractor;
-import com.atasoyh.appbusinesstestproject.model.Comic;
 import com.atasoyh.appbusinesstestproject.presenter.comicdetail.ComicDetailContract;
 import com.atasoyh.appbusinesstestproject.presenter.comicdetail.ComicDetailPresenter;
-import com.atasoyh.appbusinesstestproject.presenter.comics.ComicListContract;
-import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsPresenter;
 
 import javax.inject.Inject;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.atasoyh.appbusinesstestproject.BuildConfig;
 import com.atasoyh.appbusinesstestproject.R;
-import com.atasoyh.appbusinesstestproject.api.MarvelApi;
+import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.util.DateTypeDeserializer;
 import com.atasoyh.appbusinesstestproject.util.HashGenerator;
 import com.atasoyh.appbusinesstestproject.util.Utils;

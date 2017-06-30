@@ -1,10 +1,8 @@
 package com.atasoyh.appbusinesstestproject.interactor;
 
-import com.atasoyh.appbusinesstestproject.api.MarvelApi;
+import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.model.Comic;
 import com.atasoyh.appbusinesstestproject.model.ComicResponse;
-
-import java.util.List;
 
 import javax.inject.Inject;
 

@@ -1,4 +1,4 @@
-package com.atasoyh.appbusinesstestproject.api;
+package com.atasoyh.appbusinesstestproject.interactor.api;
 
 import com.atasoyh.appbusinesstestproject.model.ComicResponse;
 

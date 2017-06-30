@@ -1,6 +1,6 @@
 package com.atasoyh.appbusinesstestproject.ui.comics;
 
-import com.atasoyh.appbusinesstestproject.api.MarvelApi;
+import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.interactor.GetComicListInteractor;
 import com.atasoyh.appbusinesstestproject.presenter.comics.ComicListContract;
 import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsPresenter;
