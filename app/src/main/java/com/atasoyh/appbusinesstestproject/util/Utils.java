@@ -25,7 +25,7 @@ public class Utils {
     public static String getFormattedCurrency(Double number, Locale locale, Currency currency) {
         DecimalFormat format = (DecimalFormat) DecimalFormat.getCurrencyInstance(locale);
         format.setCurrency(currency);
-        format.setDecimalSeparatorAlwaysShown(false);
+        format.setDecimalSeparatorAlwaysShown(true);
         return format.format(number);
     }
 }

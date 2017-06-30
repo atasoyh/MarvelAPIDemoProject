@@ -2,6 +2,7 @@ package com.atasoyh.appbusinesstestproject.di.modules;
 
 
 import android.content.Context;
+import android.content.res.Configuration;
 
 import com.atasoyh.appbusinesstestproject.BuildConfig;
 import com.atasoyh.appbusinesstestproject.DefaultApplication;
@@ -31,6 +32,11 @@ public class AppModule {
     @Provides
     public Context getContext(){
         return mApplication;
+    }
+
+    @Provides
+    public Configuration getConfiguration(Context context){
+        return context.getResources().getConfiguration();
     }
 
 
