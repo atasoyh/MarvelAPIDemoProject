@@ -11,7 +11,7 @@ Gson is a Java library that can be used to convert Java Objects into their JSON 
 It can also be used to convert a JSON string to an equivalent Java object.
 
 ##GSON Converter : "com.squareup.retrofit2:converter-gson:2.2.0"
-By default, Retrofit can only deserialize HTTP bodies into OkHttp's ResponseBody type and it can only accept its RequestBody type for @Body.
+By default, Retrofit can only deserialize HTTP bodies into OkHttp's ResponseBody type and it can only accept its RequestBody type for Body Annotation.
 Converter is added to support other types.
 
 ##RXJava2 : 'io.reactivex.rxjava2:rxjava:2.0.8'
