@@ -53,6 +53,7 @@ public class ComicDetailPresenter extends BasePresenter<ComicDetailContract.View
 
             @Override
             public void onError(Throwable e) {
+                view.dismissProgress();
                 view.showError(e.getLocalizedMessage());
 
             }
