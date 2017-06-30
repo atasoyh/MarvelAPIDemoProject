@@ -6,7 +6,6 @@ import android.content.Context;
 import com.atasoyh.appbusinesstestproject.di.component.AppComponent;
 import com.atasoyh.appbusinesstestproject.di.component.DaggerAppComponent;
 import com.atasoyh.appbusinesstestproject.di.modules.AppModule;
-import com.atasoyh.appbusinesstestproject.model.Comic;
 import com.atasoyh.appbusinesstestproject.presenter.comicdetail.ComicDetailContract;
 import com.atasoyh.appbusinesstestproject.presenter.comics.ComicListContract;
 import com.atasoyh.appbusinesstestproject.ui.comicdetail.ComicDetailModule;
@@ -51,9 +50,9 @@ public class DefaultApplication extends Application {
         comicListSubComponent = null;
     }
 
-    public ComicDetailSubComponent getComicDetailSubComponent(ComicDetailContract.View view,String comicId) {
+    public ComicDetailSubComponent getComicDetailSubComponent(ComicDetailContract.View view, String comicId) {
         if (comicDetailSubComponent == null) {
-            comicDetailSubComponent = appComponent.plus(new ComicDetailModule(view,comicId));
+            comicDetailSubComponent = appComponent.plus(new ComicDetailModule(view, comicId));
         }
         return comicDetailSubComponent;
     }
@@ -61,7 +60,6 @@ public class DefaultApplication extends Application {
     public void removeComicDetailSubComponent() {
         comicDetailSubComponent = null;
     }
-
 
 
     public static DefaultApplication get(Context context) {

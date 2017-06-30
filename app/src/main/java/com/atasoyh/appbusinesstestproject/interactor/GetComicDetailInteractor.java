@@ -17,7 +17,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class GetComicDetailInteractor {
 
-
     MarvelApi marvelApi;
 
     @Inject
