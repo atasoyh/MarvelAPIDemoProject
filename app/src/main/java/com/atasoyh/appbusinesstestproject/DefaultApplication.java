@@ -9,6 +9,7 @@ import com.atasoyh.appbusinesstestproject.di.modules.AppModule;
 import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsContract;
 import com.atasoyh.appbusinesstestproject.ui.comics.ComicsActivityModule;
 import com.atasoyh.appbusinesstestproject.ui.comics.ComicsActivitySubComponent;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
  * Created by atasoyh on 29/06/2017.
@@ -23,6 +24,8 @@ public class DefaultApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //facebook's imageloader library
+        Fresco.initialize(this);
         //create appComponent
         createAppComponent();
     }

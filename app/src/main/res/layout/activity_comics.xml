@@ -7,9 +7,11 @@
     tools:context=".ui.comics.ComicsActivity">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rv"
-     />
+        app:layoutManager="GridLayoutManager"
+        tools:context=".ui.comics.ComicsActivity"
+        tools:listitem="@layout/item_comic" />
 
 </android.support.constraint.ConstraintLayout>

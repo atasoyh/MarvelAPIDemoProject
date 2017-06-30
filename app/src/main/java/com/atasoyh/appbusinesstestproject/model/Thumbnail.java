@@ -29,4 +29,8 @@ public class Thumbnail {
         this.extension = extension;
     }
 
+    public String getUrl(){
+        return getPath()+"."+getExtension();
+    }
+
 }

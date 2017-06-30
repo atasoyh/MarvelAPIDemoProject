@@ -1,6 +1,11 @@
 package com.atasoyh.appbusinesstestproject.ui.comics;
 
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.atasoyh.appbusinesstestproject.DefaultApplication;
 import com.atasoyh.appbusinesstestproject.R;
@@ -13,15 +18,26 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class ComicsActivity extends BaseActivity implements ComicsContract.View {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class ComicsActivity extends BaseActivity implements ComicsContract.View, ComicsAdapter.OnItemClickListener {
 
     @Inject
     ComicsPresenter comicsPresenter;
 
+    @BindView(R.id.rv)
+    RecyclerView recyclerView;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_comics);
         super.onCreate(savedInstanceState);
+
+        ButterKnife.bind(this);
+
         comicsPresenter.loadComics();
     }
 
@@ -38,6 +54,15 @@ public class ComicsActivity extends BaseActivity implements ComicsContract.View 
 
     @Override
     public void showComicList(List<Comic> comicList) {
+        ComicsAdapter adapter=new ComicsAdapter(comicList);
+        adapter.setOnItemClickListener(this);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setAdapter(adapter);
+    }
 
+    @Override
+    public void onItemClick(Comic item) {
+        Toast.makeText(this, item.getId(), Toast.LENGTH_SHORT).show();
     }
 }
