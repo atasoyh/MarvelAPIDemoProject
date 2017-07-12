@@ -33,7 +33,7 @@ public class ComicDetailPresenter extends BasePresenter<ComicDetailContract.View
 
     public void loadComicDetail() {
         view.showProgess();
-        comicDetailInteractor.execute(getObserver(), comicId);
+        comicDetailInteractor.getComicDetail(getObserver(), comicId);
     }
 
 

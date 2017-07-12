@@ -19,15 +19,36 @@ android {
     }
 }
 ext{
+    espressoVersion='2.2.2'
     androidSupport='26.0.0-beta2'
-
+    daggerVersion='2.9'
+    mockitoVersion='2.8.47'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    androidTestCompile ("com.android.support.test.espresso:espresso-intents:$espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    })
+
+    androidTestCompile ("com.android.support.test.espresso:espresso-contrib:$espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    })
+
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test:rules:0.5'
+    androidTestImplementation "org.mockito:mockito-android:$mockitoVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
@@ -63,8 +84,6 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.6.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 
-    //ORM
-    implementation "com.j256.ormlite:ormlite-core:5.0"
-    implementation "com.j256.ormlite:ormlite-android:5.0"
+
 
 }

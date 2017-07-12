@@ -1,7 +1,8 @@
 package com.atasoyh.appbusinesstestproject.ui.comics;
 
-import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.interactor.GetComicListInteractor;
+import com.atasoyh.appbusinesstestproject.interactor.GetComicListInteractorImpl;
+import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.presenter.comics.ComicListContract;
 import com.atasoyh.appbusinesstestproject.presenter.comics.ComicsPresenter;
 
@@ -30,7 +31,7 @@ public class ComicListModule {
 
     @Provides
     GetComicListInteractor provideMainInteractor(MarvelApi marvelApi) {
-        return new GetComicListInteractor(marvelApi);
+        return new GetComicListInteractorImpl(marvelApi);
     }
 
     @Provides

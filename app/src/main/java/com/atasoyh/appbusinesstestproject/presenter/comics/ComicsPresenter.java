@@ -27,13 +27,10 @@ public class ComicsPresenter extends BasePresenter<ComicListContract.View> {
 
     public void loadComics() {
          view.showProgess();
-         getComicListInteractor.execute(getObserver());
+         getComicListInteractor.getComics().subscribe(getObserver());
 
     }
 
-    private void showList(List<Comic> comicList) {
-        view.showComicList(comicList);
-    }
     private Observer<List<Comic>> getObserver() {
         return new Observer<List<Comic>>() {
 

@@ -1,8 +1,10 @@
 package com.atasoyh.appbusinesstestproject.ui.comicdetail;
 
-import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.interactor.GetComicDetailInteractor;
+import com.atasoyh.appbusinesstestproject.interactor.GetComicDetailInteractorImpl;
 import com.atasoyh.appbusinesstestproject.interactor.GetComicListInteractor;
+import com.atasoyh.appbusinesstestproject.interactor.GetComicListInteractorImpl;
+import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.presenter.comicdetail.ComicDetailContract;
 import com.atasoyh.appbusinesstestproject.presenter.comicdetail.ComicDetailPresenter;
 
@@ -32,8 +34,8 @@ public class ComicDetailModule {
     }
 
     @Provides
-    GetComicListInteractor provideMainInteractor(MarvelApi marvelApi) {
-        return new GetComicListInteractor(marvelApi);
+    GetComicDetailInteractor provideMainInteractor(MarvelApi marvelApi) {
+        return new GetComicDetailInteractorImpl(marvelApi);
     }
 
     @Provides

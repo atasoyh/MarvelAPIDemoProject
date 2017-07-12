@@ -1,6 +1,7 @@
 package com.atasoyh.appbusinesstestproject.presenter.comics;
 
 import com.atasoyh.appbusinesstestproject.model.Comic;
+import com.atasoyh.appbusinesstestproject.presenter.base.BasePresenter;
 import com.atasoyh.appbusinesstestproject.presenter.base.BaseView;
 
 import java.util.List;

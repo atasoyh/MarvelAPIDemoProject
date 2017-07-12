@@ -15,29 +15,8 @@ import io.reactivex.schedulers.Schedulers;
  * Created by atasoyh on 29/06/2017.
  */
 
-public class GetComicDetailInteractor {
+public interface GetComicDetailInteractor {
 
-    MarvelApi marvelApi;
-
-    @Inject
-    public GetComicDetailInteractor(MarvelApi marvelApi) {
-        this.marvelApi = marvelApi;
-    }
-
-    public void execute(Observer<Comic> observer,String id) {
-        this.marvelApi.getComicById(id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .unsubscribeOn(Schedulers.io())
-                .map(new Function<ComicResponse, Comic>() {
-                    @Override
-                    public Comic apply(ComicResponse comicResponse) throws Exception {
-                        return comicResponse.getData().getComics().get(0);
-
-                    }
-                }).subscribe(observer);
-        ;
-
-    }
+    void getComicDetail(Observer<Comic> observer, String id);
 }
 
