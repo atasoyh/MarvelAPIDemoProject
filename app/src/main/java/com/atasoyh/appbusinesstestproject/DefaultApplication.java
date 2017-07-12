@@ -3,9 +3,10 @@ package com.atasoyh.appbusinesstestproject;
 import android.app.Application;
 import android.content.Context;
 
-import com.atasoyh.appbusinesstestproject.di.component.AppComponent;
+import com.atasoyh.appbusinesstestproject.di.component.BaseAppComponent;
 import com.atasoyh.appbusinesstestproject.di.component.DaggerAppComponent;
 import com.atasoyh.appbusinesstestproject.di.modules.AppModule;
+import com.atasoyh.appbusinesstestproject.di.modules.ServiceModule;
 import com.atasoyh.appbusinesstestproject.presenter.comicdetail.ComicDetailContract;
 import com.atasoyh.appbusinesstestproject.presenter.comics.ComicListContract;
 import com.atasoyh.appbusinesstestproject.ui.comicdetail.ComicDetailModule;
@@ -21,7 +22,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 public class DefaultApplication extends Application {
 
 
-    private AppComponent appComponent;
+    public BaseAppComponent appComponent;
     private ComicListSubComponent comicListSubComponent;
     private ComicDetailSubComponent comicDetailSubComponent;
 
@@ -31,12 +32,12 @@ public class DefaultApplication extends Application {
         //facebook's imageloader library
         Fresco.initialize(this);
         //create appComponent
-        createAppComponent();
+        appComponent = createAppComponent();
+        appComponent.inject(this);
     }
 
-    private void createAppComponent() {
-        appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
-        appComponent.inject(this);
+    public BaseAppComponent createAppComponent() {
+        return DaggerAppComponent.builder().appModule(new AppModule(this)).serviceModule(new ServiceModule()).build();
     }
 
     public ComicListSubComponent getComicsActivitySubComponent(ComicListContract.View view) {

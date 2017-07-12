@@ -5,6 +5,11 @@ import android.content.Context;
 import android.content.res.Configuration;
 
 import com.atasoyh.appbusinesstestproject.DefaultApplication;
+import com.atasoyh.appbusinesstestproject.util.DateTypeDeserializer;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.Date;
 
 import dagger.Module;
 import dagger.Provides;
@@ -30,6 +35,14 @@ public class AppModule {
     @Provides
     public Configuration getConfiguration(Context context){
         return context.getResources().getConfiguration();
+    }
+
+    @Provides
+    public Gson provideGson()
+    {
+        return new GsonBuilder()
+                .registerTypeAdapter(Date.class, new DateTypeDeserializer())
+                .create();
     }
 
 

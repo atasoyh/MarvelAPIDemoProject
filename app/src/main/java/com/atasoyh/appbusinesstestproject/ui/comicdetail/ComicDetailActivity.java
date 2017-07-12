@@ -2,6 +2,7 @@ package com.atasoyh.appbusinesstestproject.ui.comicdetail;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.atasoyh.appbusinesstestproject.DefaultApplication;
@@ -56,7 +57,6 @@ public class ComicDetailActivity extends BaseActivity implements ComicDetailCont
         setContentView(R.layout.activity_comic_detail);
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-
         comicDetailPresenter.loadComicDetail();
     }
 
@@ -72,32 +72,6 @@ public class ComicDetailActivity extends BaseActivity implements ComicDetailCont
     }
 
 
-    private void setDescriptionText(Comic comic) {
-        tvDescription.setText(String.format(getString(R.string.description), comic.getDescription()));
-    }
-
-    private void setPageCount(Comic comic) {
-        tvPageCount.setText(String.format(getString(R.string.page_count), comic.getPageCount()));
-    }
-
-    private void setAuthorText() {
-        tvAuthor.setText(String.format(getString(R.string.author), "-"));
-    }
-
-    private void setPriceText(Comic comic) {
-        StringBuilder priceTextBuilder = new StringBuilder();
-        Locale locale = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            locale = configuration.getLocales().get(0);
-        } else locale = configuration.locale;
-
-        for (int i = 0; i < comic.getPrices().size(); i++) {
-            if (i != 0) priceTextBuilder.append('\n');
-            priceTextBuilder.append(String.format(getString(R.string.price), PriceFormatterUtil.getFormattedCurrency(comic.getPrices().get(i).getPrice(), locale, Currency.getInstance("USD")), comic.getPrices().get(i).getType()));
-        }
-        tvPrice.setText(priceTextBuilder.toString());
-    }
-
     @Override
     public void showPrice(List<ComicPrice> prices) {
         StringBuilder priceTextBuilder = new StringBuilder();
@@ -111,21 +85,25 @@ public class ComicDetailActivity extends BaseActivity implements ComicDetailCont
             priceTextBuilder.append(String.format(getString(R.string.price), PriceFormatterUtil.getFormattedCurrency(prices.get(i).getPrice(), locale, Currency.getInstance("USD")), prices.get(i).getType()));
         }
         tvPrice.setText(priceTextBuilder.toString());
+        tvPrice.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showDescription(String description) {
         tvDescription.setText(String.format(getString(R.string.description), description));
+        tvDescription.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showPage(String page) {
         tvPageCount.setText(String.format(getString(R.string.page_count), page));
+        tvPageCount.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showTitle(String title) {
         tvTitle.setText(title);
+        tvTitle.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -136,6 +114,7 @@ public class ComicDetailActivity extends BaseActivity implements ComicDetailCont
     @Override
     public void showAuthor(String author) {
         tvAuthor.setText(String.format(getString(R.string.author), TextUtils.isEmpty(author) ? "-" : author));
+        tvAuthor.setVisibility(View.VISIBLE);
     }
 
     @Override

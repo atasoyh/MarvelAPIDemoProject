@@ -90,12 +90,11 @@ public class ServiceModule {
     }
 
 
+
+
     @Provides
     @Singleton
-    public Retrofit provideRetrofit(OkHttpClient okHttpClient,@Named("url") String url) {
-        Gson gson= new GsonBuilder()
-                .registerTypeAdapter(Date.class, new DateTypeDeserializer())
-                .create();
+    public Retrofit provideRetrofit(OkHttpClient okHttpClient,@Named("url") String url, Gson gson) {
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))

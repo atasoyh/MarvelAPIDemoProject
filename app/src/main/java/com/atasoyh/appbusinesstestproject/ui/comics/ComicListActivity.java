@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
 
 import com.atasoyh.appbusinesstestproject.DefaultApplication;
@@ -36,9 +37,10 @@ public class ComicListActivity extends BaseActivity implements ComicListContract
         super.onCreate(savedInstanceState);
 
         ButterKnife.bind(this);
-
         comicsPresenter.loadComics();
     }
+
+
 
     @Override
     protected void injectDependencies(DefaultApplication application) {
@@ -55,6 +57,7 @@ public class ComicListActivity extends BaseActivity implements ComicListContract
     public void showComicList(List<Comic> comicList) {
         ComicListAdapter adapter = new ComicListAdapter(comicList);
         adapter.setOnItemClickListener(this);
+        recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapter);
@@ -62,8 +65,6 @@ public class ComicListActivity extends BaseActivity implements ComicListContract
 
     @Override
     public void onItemClick(Comic item) {
-        Toast.makeText(this, item.getId(), Toast.LENGTH_SHORT).show();
-
         Intent intent = new Intent(this, ComicDetailActivity.class);
         intent.putExtra(ComicDetailActivity.COMIC_ID, item.getId());
         startActivity(intent);

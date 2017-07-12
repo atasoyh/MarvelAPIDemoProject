@@ -17,7 +17,16 @@ import dagger.Component;
  * Created by atasoyh on 29/06/2017.
  */
 
-@Singleton
-@Component(modules = {AppModule.class, ServiceModule.class})
-public interface AppComponent extends BaseAppComponent{
+public interface BaseAppComponent {
+
+    void inject(DefaultApplication defaultApplication);
+    void inject(BaseActivity activity);
+
+    ComicListSubComponent plus(ComicListModule comicListModule);
+    ComicDetailSubComponent plus(ComicDetailModule comicDetailModule);
+
+
+
+
+
 }

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
+        <activity android:label="@string/top_100_comics"
             android:name=".ui.comics.ComicListActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity
+        <activity android:label="@string/comic_detail"
             android:name=".ui.comicdetail.ComicDetailActivity"
             android:screenOrientation="portrait" />
 
