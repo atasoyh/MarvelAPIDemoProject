@@ -28,6 +28,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
@@ -55,6 +56,21 @@ public class ComicDetailPresenterTest {
         presenter = new ComicDetailPresenter(view, interactor, mockId);
     }
 
+    @Test
+    public void isComicIdNullTest() throws Exception{
+        presenter.comicId=null;
+        presenter.loadComicDetail();
+        verifyNoMoreInteractions(interactor);
+        verify(view,times(1)).showComicIdErrorAndFinishActivity();
+    }
+
+    @Test
+    public void isComicIdEmptyTest() throws Exception{
+        presenter.comicId="";
+        presenter.loadComicDetail();
+        verifyNoMoreInteractions(interactor);
+        verify(view,times(1)).showComicIdErrorAndFinishActivity();
+    }
 
     @Test
     public void loadComicDetail() throws Exception {

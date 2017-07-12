@@ -3,6 +3,7 @@ package com.atasoyh.appbusinesstestproject.presenter.comicdetail;
 import com.atasoyh.appbusinesstestproject.interactor.GetComicDetailInteractor;
 import com.atasoyh.appbusinesstestproject.model.Comic;
 import com.atasoyh.appbusinesstestproject.presenter.base.BasePresenter;
+import com.atasoyh.appbusinesstestproject.util.TextUtils;
 
 import javax.inject.Inject;
 
@@ -23,17 +24,20 @@ public class ComicDetailPresenter extends BasePresenter<ComicDetailContract.View
         super(view);
         this.comicDetailInteractor = interactor;
         this.comicId = comicId;
-        checkID();
+
     }
 
-    private void checkID() {
-        if (comicId == null || comicId.equals(""))
-            view.showComicIdErrorAndFinishActivity();
+    private boolean checkID() {
+        return !TextUtils.isEmpty(comicId);
     }
 
     public void loadComicDetail() {
-        view.showProgess();
-        comicDetailInteractor.getComicDetail(comicId).subscribe(getObserver());
+        if (checkID()) {
+            view.showProgess();
+            comicDetailInteractor.getComicDetail(comicId).subscribe(getObserver());
+        } else {
+            view.showComicIdErrorAndFinishActivity();
+        }
     }
 
 
@@ -69,7 +73,6 @@ public class ComicDetailPresenter extends BasePresenter<ComicDetailContract.View
             }
         };
     }
-
 
 
 }
