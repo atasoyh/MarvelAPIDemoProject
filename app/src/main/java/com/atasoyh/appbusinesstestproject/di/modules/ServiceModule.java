@@ -7,7 +7,7 @@ import com.atasoyh.appbusinesstestproject.R;
 import com.atasoyh.appbusinesstestproject.interactor.api.MarvelApi;
 import com.atasoyh.appbusinesstestproject.util.DateTypeDeserializer;
 import com.atasoyh.appbusinesstestproject.util.HashGenerator;
-import com.atasoyh.appbusinesstestproject.util.Utils;
+import com.atasoyh.appbusinesstestproject.util.PriceFormatterUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -48,7 +48,7 @@ public class ServiceModule {
                 Request original = chain.request();
                 HttpUrl originalHttpUrl = original.url();
 
-                long currentTimestamp = Utils.getCurrentTimestamp();
+                long currentTimestamp = PriceFormatterUtil.getCurrentTimestamp();
                 HttpUrl url = originalHttpUrl.newBuilder()
                         .addQueryParameter("apikey", publicKey)
                         .addQueryParameter("hash", HashGenerator.generate(currentTimestamp,privateKey,publicKey))

@@ -15,7 +15,7 @@ public class HashGenerator {
         }
     }
 
-    public static String md5(String s) throws NoSuchAlgorithmException {
+    private static String md5(String s) throws NoSuchAlgorithmException {
         // Create MD5 Hash
         MessageDigest digest = MessageDigest
                 .getInstance("MD5");

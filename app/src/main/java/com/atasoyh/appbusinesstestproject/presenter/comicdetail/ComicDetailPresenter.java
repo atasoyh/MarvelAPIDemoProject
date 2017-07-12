@@ -33,7 +33,7 @@ public class ComicDetailPresenter extends BasePresenter<ComicDetailContract.View
 
     public void loadComicDetail() {
         view.showProgess();
-        comicDetailInteractor.getComicDetail(getObserver(), comicId);
+        comicDetailInteractor.getComicDetail(comicId).subscribe(getObserver());
     }
 
 
@@ -47,7 +47,12 @@ public class ComicDetailPresenter extends BasePresenter<ComicDetailContract.View
             @Override
             public void onNext(Comic comic) {
                 view.dismissProgress();
-                view.showComicDetail(comic);
+                view.showAuthor(comic.getCreators().getCreatorSummaries().get(0).getName());
+                view.showImage(comic.getThumbnail().getUrl());
+                view.showDescription(comic.getDescription());
+                view.showPrice(comic.getPrices());
+                view.showTitle(comic.getTitle());
+                view.showPage(comic.getPageCount());
 
             }
 

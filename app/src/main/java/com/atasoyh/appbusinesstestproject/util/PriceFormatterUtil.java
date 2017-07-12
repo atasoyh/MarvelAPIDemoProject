@@ -10,7 +10,7 @@ import java.util.Locale;
  * Created by atasoyh on 29/06/2017.
  */
 
-public class Utils {
+public class PriceFormatterUtil {
 
     public static long getCurrentTimestamp() {
         return System.currentTimeMillis() / 1000;

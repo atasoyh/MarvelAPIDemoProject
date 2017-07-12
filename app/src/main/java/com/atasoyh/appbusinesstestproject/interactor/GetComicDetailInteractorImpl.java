@@ -6,7 +6,7 @@ import com.atasoyh.appbusinesstestproject.model.ComicResponse;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observer;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -25,9 +25,8 @@ public class GetComicDetailInteractorImpl implements GetComicDetailInteractor {
     }
 
 
-    @Override
-    public void getComicDetail(Observer<Comic> observer, String id) {
-        this.marvelApi.getComicById(id)
+    public Observable<Comic> getComicDetail(String id) {
+        return this.marvelApi.getComicById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .unsubscribeOn(Schedulers.io())
@@ -37,6 +36,6 @@ public class GetComicDetailInteractorImpl implements GetComicDetailInteractor {
                         return comicResponse.getData().getComics().get(0);
 
                     }
-                }).subscribe(observer);
+                });
     }
 }
