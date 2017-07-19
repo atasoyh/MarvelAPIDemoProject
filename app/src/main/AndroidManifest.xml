@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.atasoyh.appbusinesstestproject">
+    package="com.atasoyh.marvelapidemoproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:name=".DefaultApplication"
+        android:name="com.atasoyh.marvelapidemoproject.DefaultApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:label="@string/top_100_comics"
-            android:name=".ui.comics.ComicListActivity"
+            android:name="com.atasoyh.marvelapidemoproject.ui.comics.ComicListActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
         </activity>
 
         <activity android:label="@string/comic_detail"
-            android:name=".ui.comicdetail.ComicDetailActivity"
+            android:name="com.atasoyh.marvelapidemoproject.ui.comicdetail.ComicDetailActivity"
             android:screenOrientation="portrait" />
 
 
