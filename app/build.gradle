@@ -10,7 +10,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "com.atasoyh.appbusinesstestproject.presenter.comics.TestAndroidJUnitRunner"
+        testInstrumentationRunner "com.atasoyh.marvelapidemoproject.presenter.comics.TestAndroidJUnitRunner"
     }
     buildTypes {
         debug{
