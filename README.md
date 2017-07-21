@@ -44,24 +44,24 @@ This is a good library for binding views. It saves time, it makes you write less
 
 I designed this project with MVP approach.
 
-#MODEL (package com.atasoyh.appbusinesstestproject.model) :
+#MODEL 
 Our model objects are in there. They were created from MarvelApi Documentation.
 
-#PRESENTER (package com.atasoyh.appbusinesstestproject.presenter)
+#PRESENTER
 The presenter is responsible to act as the middle layer between view and model. It retrieves data from the model and returns it formatted to the view.
 There are subpackages for each part of responsibility. It is more readable and editable. (base, comics, comicdetail....)
 I generally create BasePresenter and BaseView(interface), but it depends on project's design. It helps me about like showing progressbar, errors, or handling general errors,...
 
-#VIEW (package com.atasoyh.appbusinesstestproject.ui)
+#VIEW 
 The view, usually implemented by an Activity (it may be a Fragment, a View… depending on how the app is structured), will contain a reference to the presenter.
 This layer controls UI interactions.(showing a text, handling a click)... There should be no usecase there.. It's only for UI.
 There are subpackages for each part of responsibility. (base, comics, comicdetail....) Generally, View and Presenter layers look similar hyerarch.
 I generally create BaseActivity, BaseFragment,... for handling BaseView's Interaction. it helps me about like showing progressbar, errors, or handling general errors,...
 
-##INTERACTOR (com.atasoyh.appbusinesstestproject.interactor)
+##INTERACTOR 
 It manages data traffic. You can think it is middle of presenter and datasource.
 
-##DI (com.atasoyh.appbusinesstestproject.di)
+##DI
 I create modules classes in di package. (submodules are in presenter package for easy to read.)
 
 
